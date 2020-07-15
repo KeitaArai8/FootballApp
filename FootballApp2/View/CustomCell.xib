@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="messageCell" rowHeight="103" id="T0D-6T-kuZ" customClass="CustomCell" customModule="FootballApp2" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="420" height="103"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="T0D-6T-kuZ" id="8IN-nH-1HS">
+                <rect key="frame" x="0.0" y="0.0" width="420" height="103"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ユーザー名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CUm-ax-iC2">
+                        <rect key="frame" x="5" y="5" width="200" height="31"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="200" id="OD5-IO-aMe"/>
+                            <constraint firstAttribute="width" secondItem="CUm-ax-iC2" secondAttribute="height" multiplier="200:31" id="UMt-ZC-d45"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Vh-bP-V1W">
+                        <rect key="frame" x="88.5" y="62" width="43" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="コメント" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VvA-Ce-L3f">
+                        <rect key="frame" x="10" y="41" width="73.5" height="52"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="Hcg-zc-CZH"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="VvA-Ce-L3f" firstAttribute="bottom" secondItem="7Vh-bP-V1W" secondAttribute="bottom" constant="10" id="2Oc-Zx-rXd"/>
+                    <constraint firstItem="VvA-Ce-L3f" firstAttribute="leading" secondItem="8IN-nH-1HS" secondAttribute="leading" constant="10" id="HaP-xp-PEM"/>
+                    <constraint firstAttribute="bottom" secondItem="VvA-Ce-L3f" secondAttribute="bottom" constant="10" id="Nx1-Ny-WDT"/>
+                    <constraint firstItem="7Vh-bP-V1W" firstAttribute="leading" secondItem="VvA-Ce-L3f" secondAttribute="trailing" constant="5" id="Ohw-Pj-Z20"/>
+                    <constraint firstItem="CUm-ax-iC2" firstAttribute="leading" secondItem="8IN-nH-1HS" secondAttribute="leading" constant="5" id="QLH-iU-Vbg"/>
+                    <constraint firstItem="VvA-Ce-L3f" firstAttribute="top" secondItem="CUm-ax-iC2" secondAttribute="bottom" constant="5" id="YX6-dK-0ut"/>
+                    <constraint firstItem="CUm-ax-iC2" firstAttribute="top" secondItem="8IN-nH-1HS" secondAttribute="top" constant="5" id="b1L-cN-RcZ"/>
+                    <constraint firstItem="7Vh-bP-V1W" firstAttribute="leading" secondItem="VvA-Ce-L3f" secondAttribute="trailing" constant="5" id="dJ7-sA-jZi"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="commentLabel" destination="VvA-Ce-L3f" id="iUm-oE-Uu1"/>
+                <outlet property="dateLabel" destination="7Vh-bP-V1W" id="88z-iV-uhO"/>
+                <outlet property="usernameLabel" destination="CUm-ax-iC2" id="zp2-u1-rfY"/>
+            </connections>
+            <point key="canvasLocation" x="77" y="6"/>
+        </tableViewCell>
+    </objects>
+</document>
