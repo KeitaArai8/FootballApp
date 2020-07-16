@@ -35,7 +35,7 @@ class PostedArticlesViewController: UIViewController,UITableViewDelegate,UITable
         messageTextField.text = ""
         messageTextField.delegate = self
         
-        //fetchComment()
+        fetchComment()
         
     }
     
@@ -129,39 +129,40 @@ class PostedArticlesViewController: UIViewController,UITableViewDelegate,UITable
         
     }
         
-//    func fetchComment(){
-//        let urlDoc = "comment"
-//        guard let urlCollectionId = urlCollectionId else {return}
-//
-//        Firestore.firestore().collection("chat").document(urlCollectionId).collection(urlDoc).addSnapshotListener { (snapshots, err) in
-//            if let err = err{
-//
-//                print("コメントの取得に失敗しました\(err)")
-//                return
-//            }
-//
-//            snapshots?.documentChanges.forEach({ (documentChange) in
-//                switch documentChange.type{
-//
-//                case.added:
-//                    let dic = documentChange.document.data()
-//                    let comment = Comment(dic: dic)
-//                    self.messages.append(comment)
-//                    self.messages.sort { (m1, m2) -> Bool in
-//                        let miDate = m1.createdAt.dateValue()
-//                        let m2Date = m2.createdAt.dateValue()
-//                        return miDate < m2Date
-//                    }
-//                    self.tableView.reloadData()
-//
-//                case.modified,.removed:
-//                    print("no")
-//                }
-//            })
-//
-//        }
-//
-//    }
+    func fetchComment(){
+        let urlDoc = "commentData"
+        guard let urlCollectionId = urlCollectionId else {return}
+        
+        Firestore.firestore().collection("chat").document(urlCollectionId).collection(urlDoc).addSnapshotListener { (snapshots, err) in
+            if let err = err{
+                
+                print("コメントの取得に失敗しました\(err)")
+                return
+            }
+            print("コメントの取得に成功しました")
+            snapshots?.documentChanges.forEach({ (documentChange) in
+                switch documentChange.type{
+                    
+                case.added:
+                    let dic = documentChange.document.data()
+                    let comment = Comment(dic: dic)
+                    self.messages.append(comment)
+                    self.messages.sort { (m1, m2) -> Bool in
+                        let miDate = m1.createdAt.dateValue()
+                        let m2Date = m2.createdAt.dateValue()
+                        return miDate < m2Date
+                        
+                    }
+                    self.tableView.reloadData()
+                    
+                case.modified,.removed:
+                    print("no")
+                }
+            })
+            
+        }
+        
+    }
     
     
 }

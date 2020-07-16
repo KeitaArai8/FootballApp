@@ -128,6 +128,7 @@
 			children = (
 				6FBDFD232493CE6A00D4D15A /* Model */,
 				6FBDFD222493CE5A00D4D15A /* View */,
+				6FF24F5024ADA94000405184 /* NewsController */,
 				6FBDFD212493CE5000D4D15A /* commentController */,
 				6FBDFD1B2493CA6500D4D15A /* Info.plist */,
 				6FBDFD0D2493CA6400D4D15A /* AppDelegate.swift */,
@@ -161,7 +162,6 @@
 				6FBDFD182493CA6500D4D15A /* LaunchScreen.storyboard */,
 				6F239ACF24AE2DC2007096FA /* CustomCell.swift */,
 				6FC5235F24B447550029EDD6 /* CustomCell.xib */,
-				6FF24F5024ADA94000405184 /* NewsController */,
 			);
 			path = View;
 			sourceTree = "<group>";
