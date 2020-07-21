@@ -8,10 +8,19 @@
 
 import Foundation
 
+struct NewsModel {
+
+static var titleArray = [String]()
+static var publishAtArray = [String]()
+static var imageURLStringArray = [String]()
+static var JSONurlArray = [String]()
+
+}
+
 class News{
-    
+
     var title:String?
     var url:String?
     var pubDate:String?
-    
+
 }

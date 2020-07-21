@@ -4,49 +4,58 @@
 //
 //  Created by Keita Arai on 2020/06/22.
 //  Copyright © 2020 Keita Arai. All rights reserved.
-//
+
 
 import UIKit
 import SegementSlide
 import Alamofire
 import SwiftyJSON
 import SDWebImage
+import Firebase
 
-class Page6ViewController: UITableViewController,SegementSlideContentScrollViewDelegate {
-    
-    //var newsItem = [JSONsoccer]()
-    
-    
-    var titleArray = [String]()
-    var publishAtArray = [String]()
-    var imageURLStringArray = [String]()
-    var JSONurlArray = [String]()
 
+class Page6ViewController: UITableViewController,SegementSlideContentScrollViewDelegate,getDataDelegate {
+    
+    var getdataClass = GetData()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         
-        getdata()
+        getdataClass.getdata(text: "https://newsapi.org/v2/everything?q=チャンピオンズリーグ CL&language=jp&sortBy=publishedAt&apiKey=1958c16c0cae44cf94156f4e04c2144d&pageSize=50")
+        getDataArray(titleArray: NewsModel.titleArray, publishAtArray: NewsModel.publishAtArray, imageURLStringArray: NewsModel.imageURLStringArray, JSONurlArray: NewsModel.JSONurlArray)
         
     }
-
-
+    
+    func getDataArray(titleArray: [String], publishAtArray: [String], imageURLStringArray: [String], JSONurlArray: [String]) {
+        
+        NewsModel.titleArray = titleArray
+        NewsModel.publishAtArray = publishAtArray
+        NewsModel.imageURLStringArray = imageURLStringArray
+        NewsModel.JSONurlArray = JSONurlArray
+        getdataClass.delegate = self
+        
+        self.tableView.reloadData()
+    }
+    
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
-
+        
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-        return titleArray.count
+        
+        return NewsModel.titleArray.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "Cell")
         
         
-        let profieleImageURL = URL(string: self.imageURLStringArray[indexPath.row] as String)!
+        let profieleImageURL = URL(string: NewsModel.imageURLStringArray[indexPath.row] as String)!
         
         
         let imageSize = SDImageResizingTransformer(size: CGSize(width: 100, height: 80), scaleMode: .aspectFill)
@@ -61,93 +70,36 @@ class Page6ViewController: UITableViewController,SegementSlideContentScrollViewD
             }
             
         })
-
+        
         cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 15.0)
-        cell.textLabel?.text = self.titleArray[indexPath.row]
-        cell.detailTextLabel?.text = self.publishAtArray[indexPath.row]
+        cell.textLabel?.text = NewsModel.titleArray[indexPath.row]
+        cell.detailTextLabel?.text = NewsModel.publishAtArray[indexPath.row]
         cell.textLabel?.numberOfLines = 3
         
         
         return cell
     }
-  
+    
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return view.frame.size.height/7
     }
-
-   
-
-    func getdata(){
-        
-        let text = "https://newsapi.org/v2/everything?q=チャンピオンズリーグ CL&language=jp&sortBy=publishedAt&apiKey=1958c16c0cae44cf94156f4e04c2144d&pageSize=50"
-        
-        let url = text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-        //リクエストを送る
-        AF.request(url!, method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON{ (responce) in
-            
-            //JSON解析
-            switch responce.result{
-                
-            case.success:
-                
-                for i in 0...49{
-                    
-                    let json:JSON = JSON(responce.data as Any)
-                    let publishedAt = json["articles"][i]["publishedAt"].string
-                    let title = json["articles"][i]["title"].string
-                    let imageURLString = json["articles"][i]["urlToImage"].string
-                    let JSONurl = json["articles"][i]["url"].string
-                    
-                    self.publishAtArray.append(publishedAt!)
-                    self.titleArray.append(title!)
-                    self.JSONurlArray.append(JSONurl!)
-                    
-                    if imageURLString == "<null>"{
-                        
-                        self.imageURLStringArray.append("https://firebasestorage.googleapis.com/v0/b/footballapp2.appspot.com/o/noimage.png?alt=media&token=0d54a72d-e4ac-4f60-b22d-7f879a0b466b")
-                        
-                    }else if imageURLString == nil{
-                        
-                        self.imageURLStringArray.append("https://firebasestorage.googleapis.com/v0/b/footballapp2.appspot.com/o/noimage.png?alt=media&token=0d54a72d-e4ac-4f60-b22d-7f879a0b466b")
-                        
-                    }
-                        
-                    else{
-                        self.imageURLStringArray.append(imageURLString!)
-                    }
-                    
-                }
-                
-                break
-            case.failure(let error):
-                print(error)
-                break
-                
-            }
-            
-            self.tableView.reloadData()
-            
-        }
-        
-    }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        
         let indexNumber = indexPath.row
         let webViewController = WebViewController()
-        let url = JSONurlArray[indexNumber]
+        let url = NewsModel.JSONurlArray[indexNumber]
         webViewController.urlStirng = url
         
         webViewController.modalPresentationStyle = .currentContext
         present(webViewController,animated: true,completion: nil)
-
-       }
-
-
-
-    
-    
+        
+    }
 }
+
+
+
 
 
 

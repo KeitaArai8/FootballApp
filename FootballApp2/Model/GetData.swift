@@ -10,23 +10,26 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
+protocol getDataDelegate {
+    func getDataArray(titleArray:[String], publishAtArray:[String], imageURLStringArray:[String], JSONurlArray:[String])
+}
+
+
 class GetData {
     
+    var delegate:getDataDelegate?
     
-    var titleArray = [String]()
-    var publishAtArray = [String]()
-    var imageURLStringArray = [String]()
-    var JSONurlArray = [String]()
-    
-    
-    
-    func getdata(text:String){
+    func getdata(text:String) {
         
-        let text = ""
         
         let url = text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         //リクエストを送る
         AF.request(url!, method: .get, parameters: nil, encoding: JSONEncoding.default).responseJSON{ (responce) in
+            NewsModel.publishAtArray = []
+            NewsModel.titleArray = []
+            NewsModel.JSONurlArray  = []
+            NewsModel.imageURLStringArray = []
+            
             
             //JSON解析
             switch responce.result{
@@ -41,26 +44,26 @@ class GetData {
                     let imageURLString = json["articles"][i]["urlToImage"].string
                     let JSONurl = json["articles"][i]["url"].string
                     
-                    self.publishAtArray.append(publishedAt!)
-                    self.titleArray.append(title!)
-                    self.JSONurlArray.append(JSONurl!)
+                    NewsModel.publishAtArray.append(publishedAt!)
+                    NewsModel.titleArray.append(title!)
+                    NewsModel.JSONurlArray.append(JSONurl!)
                     
                     if imageURLString == "<null>"{
                         
-                        self.imageURLStringArray.append("https://firebasestorage.googleapis.com/v0/b/footballapp2.appspot.com/o/noimage.png?alt=media&token=0d54a72d-e4ac-4f60-b22d-7f879a0b466b")
+                        NewsModel.imageURLStringArray.append("https://firebasestorage.googleapis.com/v0/b/footballapp2.appspot.com/o/noimage.png?alt=media&token=0d54a72d-e4ac-4f60-b22d-7f879a0b466b")
                         
                     }else if imageURLString == nil{
                         
-                        self.imageURLStringArray.append("https://firebasestorage.googleapis.com/v0/b/footballapp2.appspot.com/o/noimage.png?alt=media&token=0d54a72d-e4ac-4f60-b22d-7f879a0b466b")
+                        NewsModel.imageURLStringArray.append("https://firebasestorage.googleapis.com/v0/b/footballapp2.appspot.com/o/noimage.png?alt=media&token=0d54a72d-e4ac-4f60-b22d-7f879a0b466b")
                         
                     }
                         
                     else{
-                        self.imageURLStringArray.append(imageURLString!)
+                        NewsModel.imageURLStringArray.append(imageURLString!)
                     }
                     
                 }
-                
+                self.delegate?.getDataArray(titleArray: NewsModel.titleArray, publishAtArray: NewsModel.publishAtArray, imageURLStringArray: NewsModel.imageURLStringArray, JSONurlArray: NewsModel.JSONurlArray)
                 break
             case.failure(let error):
                 print(error)
@@ -68,7 +71,6 @@ class GetData {
                 
             }
             
-//            self.tableView.reloadData()
             
         }
         

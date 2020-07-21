@@ -11,22 +11,18 @@ import Firebase
 import FirebaseAuth
 import FirebaseFirestore
 
-class Chat3ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate {
+class Chat3ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,ChatDelegate {
     
-    var user: User?
-    var messages = [Comment]()
-    
+    var ChatClass = Chat()
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var sendButton: UIButton!
-    
-    var chatArray = [Message]()
-    
+        
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -38,13 +34,19 @@ class Chat3ViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         messageTextField.delegate = self
         
         
-
-        self.navigationItem.title = "セリエA掲示板"
+        
+        self.navigationItem.title = " セリエA掲示板"
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         self.navigationController?.navigationBar.tintColor = .white
         
-        fetchComment()
-        
+        ChatClass.fetchComment(roomId: "SerieA")
+        messagesAppend(messages: ChatModel.messages)        
+    }
+    
+    func messagesAppend(messages: [Comment]) {
+        ChatModel.messages = messages
+        ChatClass.delegate = self
+        self.tableView.reloadData()
     }
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
@@ -68,17 +70,17 @@ class Chat3ViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         textField.resignFirstResponder()
         return true
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return messages.count
+        return ChatModel.messages.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "messageCell", for: indexPath) as! CustomCell
         
-        cell.comment = messages[indexPath.row]
-        cell.usernameLabel.text = user?.name
+        cell.comment = ChatModel.messages[indexPath.row]
+        cell.usernameLabel.text = ChatModel.user?.name
         cell.usernameLabel.textColor = .white
         
         return cell
@@ -96,25 +98,24 @@ class Chat3ViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         return 100
     }
     
+    
     @IBAction func sendAction(_ sender: Any) {
         
         sendButton.isEnabled = false
         
-        SaveComment(room: "SerieA")
+        SaveComment(roomId: "SerieA")
         
         messageTextField.text = ""
-
+        
+        
     }
     
-    
-    func SaveComment(room:String){
+    func SaveComment(roomId:String){
         
-        guard let name = self.user?.name else {return}
+        guard let name = ChatModel.user?.name else {return}
         guard let comment = messageTextField.text else {return}
         guard let uid = Auth.auth().currentUser?.uid else {return}
-        let roomId = room
-
-
+        
         let docData = ["name":name,"comment":comment,"createdAt":Timestamp(),"uid":uid] as [String : Any]
         Firestore.firestore().collection("chatRoom").document(roomId).collection("comment").addDocument(data: docData){ (err) in
             if let err = err{
@@ -128,42 +129,8 @@ class Chat3ViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     
     
     
-    func fetchComment(){
-        
-        let roomId = "SerieA"
-        
-        Firestore.firestore().collection("chatRoom").document(roomId).collection("comment").addSnapshotListener { (snapshots, err) in
-            if let err = err{
-                print("コメントの取得に失敗しました\(err)")
-                return
-            }
-            
-            snapshots?.documentChanges.forEach({ (documentChange) in
-                switch documentChange.type{
-                    
-                case.added:
-                    let dic = documentChange.document.data()
-                    let comment = Comment(dic: dic)
-                    self.messages.append(comment)
-                    self.messages.sort { (m1, m2) -> Bool in
-                        let miDate = m1.createdAt.dateValue()
-                        let m2Date = m2.createdAt.dateValue()
-                        return miDate < m2Date
-                    }
-                    self.tableView.reloadData()
-                    
-                case.modified,.removed:
-                    print("no")
-                }
-            })
-            
-        }
-        
-    }
-    
-    
-    
 }
+
 
 
 

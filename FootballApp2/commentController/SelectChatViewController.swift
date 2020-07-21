@@ -24,7 +24,7 @@ class SelectChatViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        self.navigationController?.navigationBar.tintColor = .white
         premier.setImage(UIImage(named: "premier2"), for: UIControl.State.normal)
         laliga.setImage(UIImage(named: "LaLiga"), for: UIControl.State.normal)
         serieA.setImage(UIImage(named: "serieA"), for: UIControl.State.normal)
@@ -39,10 +39,10 @@ class SelectChatViewController: UIViewController {
         
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let chatVC = storyboard.instantiateViewController(withIdentifier: "PremierChat") as! ChatViewController
-        chatVC.user = user
+        ChatModel.user = user
         self.navigationController?.pushViewController(chatVC, animated: true)
                 
-        ChatRoomSelect(room: "PremierLeague")
+        ChatRoomSelect(roomId: "PremierLeague")
         
     }
     
@@ -52,10 +52,10 @@ class SelectChatViewController: UIViewController {
         
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let chatVC = storyboard.instantiateViewController(withIdentifier: "LaligaChat") as! Chat2ViewController
-        chatVC.user = user
+        ChatModel.user = user
         self.navigationController?.pushViewController(chatVC, animated: true)
         
-        ChatRoomSelect(room: "LaLiga")
+        ChatRoomSelect(roomId: "LaLiga")
         
     }
     
@@ -64,10 +64,10 @@ class SelectChatViewController: UIViewController {
         
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let chatVC = storyboard.instantiateViewController(withIdentifier: "SerieAChat") as! Chat3ViewController
-        chatVC.user = user
+        ChatModel.user = user
         self.navigationController?.pushViewController(chatVC, animated: true)
         
-        ChatRoomSelect(room: "SerieA")
+        ChatRoomSelect(roomId: "SerieA")
         
     }
     
@@ -77,10 +77,10 @@ class SelectChatViewController: UIViewController {
         
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let chatVC = storyboard.instantiateViewController(withIdentifier: "BundesChat") as! Chat4ViewController
-        chatVC.user = user
+        ChatModel.user = user
         self.navigationController?.pushViewController(chatVC, animated: true)
         
-        ChatRoomSelect(room: "BundesLiga")
+        ChatRoomSelect(roomId: "BundesLiga")
         
     }
     
@@ -89,15 +89,13 @@ class SelectChatViewController: UIViewController {
         
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let chatVC = storyboard.instantiateViewController(withIdentifier: "CLChat") as! Chat5ViewController
-        chatVC.user = user
+        ChatModel.user = user
         self.navigationController?.pushViewController(chatVC, animated: true)
         
-        ChatRoomSelect(room: "ChanpionsLegue")
+        ChatRoomSelect(roomId: "ChanpionsLegue")
     }
     
-    private func ChatRoomSelect(room:String){
-        
-        let roomId = room
+    private func ChatRoomSelect(roomId:String){
         
         guard let uid = Auth.auth().currentUser?.uid else {return}
         
