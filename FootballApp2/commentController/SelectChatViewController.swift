@@ -19,8 +19,11 @@ class SelectChatViewController: UIViewController {
     @IBOutlet weak var CL: UIButton!
     
     var user: User?
+    var ChatClass = Chat()
+    var roomId = String()
     
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,23 +39,26 @@ class SelectChatViewController: UIViewController {
     
     @IBAction func premier(_ sender: Any) {
         
-        
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let chatVC = storyboard.instantiateViewController(withIdentifier: "PremierChat") as! ChatViewController
+        let chatVC = storyboard.instantiateViewController(withIdentifier: "BaseChat") as! ChatBaseViewController
+        
         ChatModel.user = user
+        chatVC.roomName = "PremierLeague"
+        
         self.navigationController?.pushViewController(chatVC, animated: true)
-                
+        
         ChatRoomSelect(roomId: "PremierLeague")
         
     }
     
     @IBAction func Laliga(_ sender: Any) {
         
-        
-        
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let chatVC = storyboard.instantiateViewController(withIdentifier: "LaligaChat") as! Chat2ViewController
+        let chatVC = storyboard.instantiateViewController(withIdentifier: "BaseChat") as! ChatBaseViewController
+        
         ChatModel.user = user
+        chatVC.roomName = "LaLiga"
+        
         self.navigationController?.pushViewController(chatVC, animated: true)
         
         ChatRoomSelect(roomId: "LaLiga")
@@ -61,10 +67,12 @@ class SelectChatViewController: UIViewController {
     
     @IBAction func serieA(_ sender: Any) {
         
-        
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let chatVC = storyboard.instantiateViewController(withIdentifier: "SerieAChat") as! Chat3ViewController
+        let chatVC = storyboard.instantiateViewController(withIdentifier: "BaseChat") as! ChatBaseViewController
+        
         ChatModel.user = user
+        chatVC.roomName = "SerieA"
+        
         self.navigationController?.pushViewController(chatVC, animated: true)
         
         ChatRoomSelect(roomId: "SerieA")
@@ -73,12 +81,14 @@ class SelectChatViewController: UIViewController {
     
     @IBAction func bundes(_ sender: Any) {
         
-        
-        
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let chatVC = storyboard.instantiateViewController(withIdentifier: "BundesChat") as! Chat4ViewController
+        let chatVC = storyboard.instantiateViewController(withIdentifier: "BaseChat") as! ChatBaseViewController
+        
         ChatModel.user = user
+        chatVC.roomName = "BundesLiga"
+        
         self.navigationController?.pushViewController(chatVC, animated: true)
+        
         
         ChatRoomSelect(roomId: "BundesLiga")
         
@@ -86,14 +96,18 @@ class SelectChatViewController: UIViewController {
     
     @IBAction func CL(_ sender: Any) {
         
-        
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let chatVC = storyboard.instantiateViewController(withIdentifier: "CLChat") as! Chat5ViewController
+        let chatVC = storyboard.instantiateViewController(withIdentifier: "BaseChat") as! ChatBaseViewController
+        
         ChatModel.user = user
+        chatVC.roomName = "ChanpionsLegue"
+        
         self.navigationController?.pushViewController(chatVC, animated: true)
         
         ChatRoomSelect(roomId: "ChanpionsLegue")
     }
+    
+    
     
     private func ChatRoomSelect(roomId:String){
         
