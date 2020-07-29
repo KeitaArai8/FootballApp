@@ -24,29 +24,6 @@ class Chat{
     
     var delegate:ChatDelegate?
     
-//    @IBOutlet weak var tableView: UITableView!
-//    @IBOutlet weak var messageTextField: UITextField!
-//    @IBOutlet weak var sendButton: UIButton!
-//
-//    func SaveComment(roomId:String){
-//
-//        guard let name = self.user?.name else {return}
-//        guard let comment = messageTextField.text else {return}
-//        guard let uid = Auth.auth().currentUser?.uid else {return}
-//
-//
-//        let docData = ["name":name,"comment":comment,"createdAt":Timestamp(),"uid":uid] as [String : Any]
-//        Firestore.firestore().collection("chatRoom").document(roomId).collection("comment").addDocument(data: docData){ (err) in
-//            if let err = err{
-//                print("コメントの保存に失敗しました\(err)")
-//                return
-//            }
-//            print("コメントの保存に成功しました")
-//        }
-//
-//    }
-    
-    
     func fetchComment(roomId:String){
         
         ChatModel.messages = []
@@ -69,7 +46,6 @@ class Chat{
                         let m2Date = m2.createdAt.dateValue()
                         return miDate < m2Date
                     }
-//                    self.tableView.reloadData()
                     self.delegate?.messagesAppend(messages: ChatModel.messages)
                 case.modified,.removed:
                     print("no")

@@ -10,14 +10,12 @@ import UIKit
 import SegementSlide
 
 class BaseViewController: SegementSlideDefaultViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         reloadData()
         defaultSelectedIndex = 0
-        
-//        self.navigationController?.isNavigationBarHidden = true
         
     }
     
@@ -88,8 +86,8 @@ class BaseViewController: SegementSlideDefaultViewController {
         }
         
     }
-
-
-
+    
+    
+    
 }
 

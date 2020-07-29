@@ -42,18 +42,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="222" height="896"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IXL-c1-x65">
-                                        <rect key="frame" x="0.0" y="111" width="222" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.10215058192628396" green="0.24203896797704061" blue="0.49284435708288088" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                        <state key="normal" title="TOP">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="topButtonAction:" destination="hKj-fD-BQn" eventType="touchUpInside" id="r3h-g4-GyM"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x7c-zc-kyo">
                                         <rect key="frame" x="0.0" y="169" width="222" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -91,15 +79,6 @@
                                             <action selector="ChatButton:" destination="hKj-fD-BQn" eventType="touchUpInside" id="y5H-13-BlX"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pwm-ud-cm9">
-                                        <rect key="frame" x="0.0" y="343" width="222" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.10215058192628396" green="0.24203896797704061" blue="0.49284435708288088" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                        <state key="normal" title="その他">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                             </view>
@@ -112,7 +91,6 @@
                         <outlet property="menuView" destination="CR3-6z-jhN" id="AlQ-lX-kkp"/>
                         <outlet property="newsButton" destination="x7c-zc-kyo" id="84K-xO-tdy"/>
                         <outlet property="scheduleButton" destination="LmI-KK-f03" id="MdB-Dk-Rg5"/>
-                        <outlet property="topButton" destination="IXL-c1-x65" id="6QQ-SQ-quY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RS8-NK-b0e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

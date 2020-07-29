@@ -16,12 +16,12 @@ class Page2ViewController: UITableViewController,SegementSlideContentScrollViewD
     
     var getdataClass = GetData()
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
-                
+        
         getdataClass.getdata(text: "https://newsapi.org/v2/everything?q=プレミアリーグ&language=jp&sortBy=publishedAt&apiKey=1958c16c0cae44cf94156f4e04c2144d&pageSize=50")
         getDataArray(titleArray: NewsModel.titleArray, publishAtArray: NewsModel.publishAtArray, imageURLStringArray: NewsModel.imageURLStringArray, JSONurlArray: NewsModel.JSONurlArray)
         
@@ -38,19 +38,19 @@ class Page2ViewController: UITableViewController,SegementSlideContentScrollViewD
         self.tableView.reloadData()
         
     }
-
     
-
+    
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
-
+        
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
+        
         return NewsModel.titleArray.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "Cell")
@@ -77,7 +77,7 @@ class Page2ViewController: UITableViewController,SegementSlideContentScrollViewD
         
         return cell
     }
-  
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return view.frame.size.height/7
     }

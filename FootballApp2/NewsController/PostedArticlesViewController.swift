@@ -13,18 +13,14 @@ import FirebaseFirestore
 class PostedArticlesViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate {
     
     var messages = [Comment]()
-//     var messages = [String]()
     var urlCollectionId:String?
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var sendButton: UIButton!
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -66,7 +62,7 @@ class PostedArticlesViewController: UIViewController,UITableViewDelegate,UITable
         textField.resignFirstResponder()
         return true
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages.count
     }
@@ -76,7 +72,7 @@ class PostedArticlesViewController: UIViewController,UITableViewDelegate,UITable
         let cell = tableView.dequeueReusableCell(withIdentifier: "messageCell", for: indexPath) as! CustomCell
         
         cell.comment = messages[indexPath.row]
-//        cell.commentLabel.text = messages[indexPath.row]
+        //        cell.commentLabel.text = messages[indexPath.row]
         cell.usernameLabel.text = "匿名"
         cell.usernameLabel.textColor = .white
         
@@ -98,9 +94,6 @@ class PostedArticlesViewController: UIViewController,UITableViewDelegate,UITable
     @IBAction func sendAction(_ sender: Any) {
         
         sendButton.isEnabled = false
-        
-//        let text = messageTextField.text
-//        messages.append(text!)
         
         SaveComment()
         
@@ -128,7 +121,7 @@ class PostedArticlesViewController: UIViewController,UITableViewDelegate,UITable
         }
         
     }
-        
+    
     func fetchComment(){
         let urlDoc = "commentData"
         guard let urlCollectionId = urlCollectionId else {return}

@@ -28,7 +28,7 @@ class Page3ViewController: UITableViewController,SegementSlideContentScrollViewD
         
         getdataClass.getdata(text: "https://newsapi.org/v2/everything?q=リーガエスパニョーラ&language=jp&sortBy=publishedAt&apiKey=1958c16c0cae44cf94156f4e04c2144d&pageSize=50")
         getDataArray(titleArray: NewsModel.titleArray, publishAtArray: NewsModel.publishAtArray, imageURLStringArray: NewsModel.imageURLStringArray, JSONurlArray: NewsModel.JSONurlArray)
-
+        
     }
     
     func getDataArray(titleArray: [String], publishAtArray: [String], imageURLStringArray: [String], JSONurlArray: [String]) {

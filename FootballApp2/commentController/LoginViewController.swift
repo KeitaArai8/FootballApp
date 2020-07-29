@@ -11,16 +11,14 @@ import Firebase
 import FirebaseFirestore
 
 class LoginViewController: UIViewController {
-
+    
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var LoginButton: UIButton!
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.navigationItem.hidesBackButton = true
         
         LoginButton.isEnabled = false
@@ -30,7 +28,7 @@ class LoginViewController: UIViewController {
         passwordTextField.delegate = self
         
         NotificationCenter.default.addObserver(self, selector: #selector(showkeyboard), name: UIResponder.keyboardWillShowNotification, object: nil)
-               NotificationCenter.default.addObserver(self, selector: #selector(hidekeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(hidekeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     @objc func showkeyboard(notification: Notification){
@@ -46,8 +44,6 @@ class LoginViewController: UIViewController {
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: [], animations: {
             self.view.transform = transform
         })
-        
-        
     }
     
     @objc func hidekeyboard(){
@@ -59,9 +55,8 @@ class LoginViewController: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-           self.view.endEditing(true)
-       }
-    
+        self.view.endEditing(true)
+    }
     
     
     @IBAction func setUpButton(_ sender: Any) {
@@ -126,5 +121,5 @@ extension LoginViewController: UITextFieldDelegate{
         
     }
     
-
+    
 }

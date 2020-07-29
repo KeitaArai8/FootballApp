@@ -18,7 +18,6 @@ class Page4ViewController: UITableViewController,SegementSlideContentScrollViewD
     
     var getdataClass = GetData()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,40 +41,33 @@ class Page4ViewController: UITableViewController,SegementSlideContentScrollViewD
     
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        
         return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return NewsModel.titleArray.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "Cell")
         
-        
         let profieleImageURL = URL(string: NewsModel.imageURLStringArray[indexPath.row] as String)!
-        
         
         let imageSize = SDImageResizingTransformer(size: CGSize(width: 100, height: 80), scaleMode: .aspectFill)
         
         cell.imageView?.sd_setImage(with: profieleImageURL, placeholderImage: UIImage(named: "noImage"), options: .forceTransition, context: [.imageTransformer: imageSize], progress: nil, completed: { (_, error, _, _) in
-            
             
             if error == nil{
                 
                 cell.setNeedsLayout()
                 
             }
-            
         })
         
         cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 15.0)
         cell.textLabel?.text = NewsModel.titleArray[indexPath.row]
         cell.detailTextLabel?.text = NewsModel.publishAtArray[indexPath.row]
         cell.textLabel?.numberOfLines = 3
-        
         
         return cell
     }

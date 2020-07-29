@@ -107,8 +107,6 @@ class RegisterViewController: UIViewController {
                 chatVC.user = user
                 self.navigationController?.pushViewController(chatVC, animated: true)
             }
-            
-            
             print("保存に成功しました")
         }
         
@@ -165,8 +163,6 @@ class RegisterViewController: UIViewController {
     
 }
 
-
-
 extension RegisterViewController: UITextFieldDelegate{
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
@@ -187,5 +183,4 @@ extension RegisterViewController: UITextFieldDelegate{
         
     }
     
-
 }

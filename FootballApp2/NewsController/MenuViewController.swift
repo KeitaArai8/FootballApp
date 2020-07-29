@@ -9,10 +9,9 @@
 import UIKit
 
 class MenuViewController: UIViewController {
-
+    
     @IBOutlet weak var menuView: UIView!
     
-    @IBOutlet weak var topButton: UIButton!
     @IBOutlet weak var newsButton: UIButton!
     @IBOutlet weak var scheduleButton: UIButton!
     @IBOutlet weak var chatButton: UIButton!
@@ -22,13 +21,13 @@ class MenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-       
+        
         let menuPos = self.menuView.layer.position
         
         self.menuView.layer.position.x = -self.menuView.frame.width
@@ -44,7 +43,7 @@ class MenuViewController: UIViewController {
         })
         
     }
-
+    
     // メニュー以外タップ時
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
@@ -67,22 +66,6 @@ class MenuViewController: UIViewController {
         }
     }
     
-    @IBAction func topButtonAction(_ sender: Any) {
-        
-        UIView.animate(
-            withDuration: 0.2,
-            delay: 0,
-            options: .curveEaseIn,
-            animations: {
-                self.menuView.layer.position.x = -self.menuView.frame.width
-        },
-            completion: { bool in
-                self.dismiss(animated: true, completion: nil)
-        }
-        )
-        
-    }
-    
     @IBAction func newsButton(_ sender: Any) {
         
         UIView.animate(
@@ -99,11 +82,7 @@ class MenuViewController: UIViewController {
         
     }
     
-    
-    
     @IBAction func scheduleAction(_ sender: Any) {
-
-        
         
     }
     
@@ -116,5 +95,5 @@ class MenuViewController: UIViewController {
     }
     
     
-
+    
 }

@@ -8,12 +8,10 @@ class Page1ViewController: UITableViewController,SegementSlideContentScrollViewD
     var titlesInSegementSlideSwitcherView: [String] = []
     
     var parser = XMLParser()
-    
     var parseName:String!
     
     var newsItem = [News]()
     var item:News?
-    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -27,18 +25,18 @@ class Page1ViewController: UITableViewController,SegementSlideContentScrollViewD
         if let url = URL(
             string: "https://news.google.com/rss/search?q=soccer&hl=ja&gl=JP&ceid=JP:ja"){
             if let parser = XMLParser(contentsOf: url){
-            self.parser = parser
-            self.parser.delegate = self
-            self.parser.parse()
+                self.parser = parser
+                self.parser.delegate = self
+                self.parser.parse()
             }
         }
     }
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView,
                             numberOfRowsInSection section: Int) -> Int{
         return newsItem.count
@@ -55,7 +53,7 @@ class Page1ViewController: UITableViewController,SegementSlideContentScrollViewD
         cell.detailTextLabel?.text = newsItem[indexPath.row].pubDate
         
         return cell
-   }
+    }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return view.frame.size.height/6
@@ -74,7 +72,7 @@ class Page1ViewController: UITableViewController,SegementSlideContentScrollViewD
     func parser(_ parser: XMLParser, foundCharacters string: String) {
         
         self.parseName += string
-               
+        
     }
     
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
@@ -97,7 +95,7 @@ class Page1ViewController: UITableViewController,SegementSlideContentScrollViewD
     func parserDidEndDocument(_ parser: XMLParser) {
         self.tableView.reloadData()
     }
-
+    
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -109,6 +107,6 @@ class Page1ViewController: UITableViewController,SegementSlideContentScrollViewD
         present(webViewController,animated: true,completion: nil)
         
     }
-
-   
+    
+    
 }

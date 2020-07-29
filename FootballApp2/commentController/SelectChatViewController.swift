@@ -11,7 +11,6 @@ import Firebase
 
 class SelectChatViewController: UIViewController {
     
-    
     @IBOutlet weak var premier: UIButton!
     @IBOutlet weak var laliga: UIButton!
     @IBOutlet weak var serieA: UIButton!
@@ -22,8 +21,6 @@ class SelectChatViewController: UIViewController {
     var ChatClass = Chat()
     var roomId = String()
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,7 +30,6 @@ class SelectChatViewController: UIViewController {
         serieA.setImage(UIImage(named: "serieA"), for: UIControl.State.normal)
         bundes.setImage(UIImage(named: "bundes"), for: UIControl.State.normal)
         CL.setImage(UIImage(named: "CL"), for: UIControl.State.normal)
-        
         
     }
     
@@ -88,7 +84,6 @@ class SelectChatViewController: UIViewController {
         chatVC.roomName = "BundesLiga"
         
         self.navigationController?.pushViewController(chatVC, animated: true)
-        
         
         ChatRoomSelect(roomId: "BundesLiga")
         

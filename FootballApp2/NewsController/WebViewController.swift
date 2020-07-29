@@ -13,11 +13,9 @@ import Firebase
 class WebViewController: UIViewController,WKUIDelegate {
     
     var webView = WKWebView()
-    
     var toolbar = UIToolbar()
-    
     var urlStirng:String?
-    
+    var activityIndicatorView = UIActivityIndicatorView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,28 +36,37 @@ class WebViewController: UIViewController,WKUIDelegate {
         toolbar.barStyle = .default
          
         let buttonSize: CGFloat = 24
-         
         // 戻るボタン
         let backButton = UIButton(frame: CGRect(x: 0, y: 0, width: buttonSize, height: buttonSize))
         backButton.setBackgroundImage(UIImage(named: "arrow_left"), for: UIControl.State())
         backButton.addTarget(self, action: #selector(self.onClickBack(_:)), for: .touchUpInside)
         let backButtonItem = UIBarButtonItem(customView: backButton)
-         
-         
         // コメントボタン
         let commentButton = UIButton(frame: CGRect(x: 0, y: 0, width: buttonSize, height: buttonSize))
         commentButton.setBackgroundImage(UIImage(named: "message"), for: UIControl.State())
         commentButton.addTarget(self, action: #selector(self.onCommentClose(_:)), for: .touchUpInside)
         let commentButtonItem = UIBarButtonItem(customView: commentButton)
-         
         // 余白
         let flexibleItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
-         
         // ツールバーにアイテムを追加
         toolbar.items = [backButtonItem, flexibleItem, flexibleItem, flexibleItem, commentButtonItem]
         
-         view.addSubview(toolbar)
+        activityIndicatorView.backgroundColor = .gray
+        activityIndicatorView.style = .large
+        activityIndicatorView.center = view.center
+        activityIndicatorView.color = .blue
+        activityIndicatorView.startAnimating()
         
+        DispatchQueue.global(qos: .default).async {
+            Thread.sleep(forTimeInterval: 2)
+
+            DispatchQueue.main.async {
+                self.activityIndicatorView.stopAnimating()
+            }
+        }
+        
+        view.addSubview(toolbar)
+        view.addSubview(activityIndicatorView)
     }
     
     
@@ -101,22 +108,14 @@ class WebViewController: UIViewController,WKUIDelegate {
         ).joined()
         
         let urlDoc = "webURL"
-        
         let docData = ["url":url,"createdAt":Timestamp()] as [String : Any]
         Firestore.firestore().collection("chat").document(String(textChange)).collection(urlDoc).document("URL").setData(docData) { (err) in
             if let err = err{
-                
                 print("URLの保存に失敗しました\(err)")
                 return
             }
-            
             print("URLの保存に成功しました")
-            
         }
-        
     }
 
-    
-    
-    
 }

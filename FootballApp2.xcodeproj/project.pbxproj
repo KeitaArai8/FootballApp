@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6F1C5FD824B9878200A4B1AE /* GetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1C5FD724B9878200A4B1AE /* GetData.swift */; };
-		6F239ACA24AE2728007096FA /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F239AC924AE2728007096FA /* Message.swift */; };
 		6F239AD124AE2DC2007096FA /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F239ACF24AE2DC2007096FA /* CustomCell.swift */; };
 		6F36E5B824B610BB00F38820 /* PostedArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F36E5B724B610BB00F38820 /* PostedArticlesViewController.swift */; };
 		6F36E5BA24B611EB00F38820 /* SelectChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F36E5B924B611EB00F38820 /* SelectChatViewController.swift */; };
@@ -16,13 +15,10 @@
 		6F3E7C222494C2DE00DD43BD /* Page3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3E7C212494C2DE00DD43BD /* Page3ViewController.swift */; };
 		6F3E7C242494C2ED00DD43BD /* Page4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3E7C232494C2ED00DD43BD /* Page4ViewController.swift */; };
 		6F3E7C262494C2FA00DD43BD /* Page5ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3E7C252494C2FA00DD43BD /* Page5ViewController.swift */; };
-		6F4C672E24ACD86E00A67C05 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4C672D24ACD86E00A67C05 /* ChatViewController.swift */; };
 		6F7BD1EB24A9B52C004E2815 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6F7BD1EA24A9B52C004E2815 /* GoogleService-Info.plist */; };
+		6F88021724C5E75E005DFBCF /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F88021624C5E75E005DFBCF /* Chat.swift */; };
+		6F96BA8D24C16AF20059244B /* ChatBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F96BA8C24C16AF20059244B /* ChatBaseViewController.swift */; };
 		6F986F6A24AB14DA00060965 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F986F6924AB14DA00060965 /* CommentViewController.swift */; };
-		6F9EB27F24B70A5900F26900 /* Chat2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9EB27E24B70A5900F26900 /* Chat2ViewController.swift */; };
-		6F9EB28124B70B0200F26900 /* Chat3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9EB28024B70B0200F26900 /* Chat3ViewController.swift */; };
-		6F9EB28324B7599B00F26900 /* Chat4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9EB28224B7599B00F26900 /* Chat4ViewController.swift */; };
-		6F9EB28524B759AD00F26900 /* Chat5ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9EB28424B759AD00F26900 /* Chat5ViewController.swift */; };
 		6F9EB28724B7658200F26900 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9EB28624B7658200F26900 /* Comment.swift */; };
 		6FAA855024A4F5B400B269AA /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAA854F24A4F5B400B269AA /* RegisterViewController.swift */; };
 		6FAA855224A4F5C200B269AA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FAA855124A4F5C200B269AA /* LoginViewController.swift */; };
@@ -46,7 +42,6 @@
 /* Begin PBXFileReference section */
 		07E07FD38FD35A5C7BCFBF4A /* Pods-FootballApp2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FootballApp2.debug.xcconfig"; path = "Target Support Files/Pods-FootballApp2/Pods-FootballApp2.debug.xcconfig"; sourceTree = "<group>"; };
 		6F1C5FD724B9878200A4B1AE /* GetData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetData.swift; sourceTree = "<group>"; };
-		6F239AC924AE2728007096FA /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		6F239ACF24AE2DC2007096FA /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		6F36E5B724B610BB00F38820 /* PostedArticlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostedArticlesViewController.swift; sourceTree = "<group>"; };
 		6F36E5B924B611EB00F38820 /* SelectChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectChatViewController.swift; sourceTree = "<group>"; };
@@ -54,13 +49,10 @@
 		6F3E7C212494C2DE00DD43BD /* Page3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page3ViewController.swift; sourceTree = "<group>"; };
 		6F3E7C232494C2ED00DD43BD /* Page4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page4ViewController.swift; sourceTree = "<group>"; };
 		6F3E7C252494C2FA00DD43BD /* Page5ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page5ViewController.swift; sourceTree = "<group>"; };
-		6F4C672D24ACD86E00A67C05 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		6F7BD1EA24A9B52C004E2815 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6F88021624C5E75E005DFBCF /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
+		6F96BA8C24C16AF20059244B /* ChatBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBaseViewController.swift; sourceTree = "<group>"; };
 		6F986F6924AB14DA00060965 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
-		6F9EB27E24B70A5900F26900 /* Chat2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat2ViewController.swift; sourceTree = "<group>"; };
-		6F9EB28024B70B0200F26900 /* Chat3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat3ViewController.swift; sourceTree = "<group>"; };
-		6F9EB28224B7599B00F26900 /* Chat4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat4ViewController.swift; sourceTree = "<group>"; };
-		6F9EB28424B759AD00F26900 /* Chat5ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat5ViewController.swift; sourceTree = "<group>"; };
 		6F9EB28624B7658200F26900 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		6FAA854F24A4F5B400B269AA /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		6FAA855124A4F5C200B269AA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -145,11 +137,7 @@
 				6FAA854F24A4F5B400B269AA /* RegisterViewController.swift */,
 				6FAA855124A4F5C200B269AA /* LoginViewController.swift */,
 				6F36E5B924B611EB00F38820 /* SelectChatViewController.swift */,
-				6F4C672D24ACD86E00A67C05 /* ChatViewController.swift */,
-				6F9EB27E24B70A5900F26900 /* Chat2ViewController.swift */,
-				6F9EB28024B70B0200F26900 /* Chat3ViewController.swift */,
-				6F9EB28224B7599B00F26900 /* Chat4ViewController.swift */,
-				6F9EB28424B759AD00F26900 /* Chat5ViewController.swift */,
+				6F96BA8C24C16AF20059244B /* ChatBaseViewController.swift */,
 			);
 			path = commentController;
 			sourceTree = "<group>";
@@ -170,9 +158,9 @@
 			isa = PBXGroup;
 			children = (
 				6FC3EAE92498876400925D5C /* News.swift */,
-				6F239AC924AE2728007096FA /* Message.swift */,
 				6F9EB28624B7658200F26900 /* Comment.swift */,
 				6F1C5FD724B9878200A4B1AE /* GetData.swift */,
+				6F88021624C5E75E005DFBCF /* Chat.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -323,6 +311,7 @@
 			files = (
 				6FEA71EE249C7D35003194C2 /* ScheduleViewController.swift in Sources */,
 				6F3E7C202494C2CD00DD43BD /* Page2ViewController.swift in Sources */,
+				6F88021724C5E75E005DFBCF /* Chat.swift in Sources */,
 				6F239AD124AE2DC2007096FA /* CustomCell.swift in Sources */,
 				6F36E5B824B610BB00F38820 /* PostedArticlesViewController.swift in Sources */,
 				6FC3EAEC249888C900925D5C /* WebViewController.swift in Sources */,
@@ -331,19 +320,14 @@
 				6F3E7C222494C2DE00DD43BD /* Page3ViewController.swift in Sources */,
 				6F36E5BA24B611EB00F38820 /* SelectChatViewController.swift in Sources */,
 				6FBDFD122493CA6400D4D15A /* BaseViewController.swift in Sources */,
-				6F9EB28524B759AD00F26900 /* Chat5ViewController.swift in Sources */,
-				6F239ACA24AE2728007096FA /* Message.swift in Sources */,
 				6FFD4662249511AF007ECCCD /* MenuViewController.swift in Sources */,
 				6FEA71EC249C76BC003194C2 /* Page6ViewController.swift in Sources */,
-				6F9EB27F24B70A5900F26900 /* Chat2ViewController.swift in Sources */,
-				6F9EB28124B70B0200F26900 /* Chat3ViewController.swift in Sources */,
+				6F96BA8D24C16AF20059244B /* ChatBaseViewController.swift in Sources */,
 				6FBDFD252493CFC400D4D15A /* Page1ViewController.swift in Sources */,
-				6F4C672E24ACD86E00A67C05 /* ChatViewController.swift in Sources */,
 				6FAA855024A4F5B400B269AA /* RegisterViewController.swift in Sources */,
 				6F3E7C262494C2FA00DD43BD /* Page5ViewController.swift in Sources */,
 				6FAA855224A4F5C200B269AA /* LoginViewController.swift in Sources */,
 				6FBDFD0E2493CA6400D4D15A /* AppDelegate.swift in Sources */,
-				6F9EB28324B7599B00F26900 /* Chat4ViewController.swift in Sources */,
 				6FC3EAEA2498876400925D5C /* News.swift in Sources */,
 				6FBDFD102493CA6400D4D15A /* SceneDelegate.swift in Sources */,
 				6F9EB28724B7658200F26900 /* Comment.swift in Sources */,
