@@ -46,19 +46,30 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
     
+    var alertController: UIAlertController!
+    
     @IBAction func tapLoginButton(_ sender: Any) {
         
         handleAuthToFirebase()
+        alert(title: "エラー", message: "新規登録に失敗しました")
+        
+    }
+    
+    func alert(title:String, message:String) {
+        
+        alertController = UIAlertController(title: title,message: message,preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK",style: .default,handler: nil))
+        present(alertController, animated: true)
+        
     }
     
     @IBAction func LoginUserButton(_ sender: Any) {
         
-        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let loginVC = storyboard.instantiateViewController(withIdentifier: "Login") as! LoginViewController
-        self.navigationController?.pushViewController(loginVC, animated: true)
+        self.navigationController?.popViewController(animated: true)
+        
     }
     
-    private func handleAuthToFirebase(){
+    private func handleAuthToFirebase() {
         
         guard let email = emailTextField.text else {return}
         guard let password = passwordTextField.text else {return}
@@ -141,7 +152,6 @@ class RegisterViewController: UIViewController {
             self.view.transform = transform
         })
         
-        
     }
     
     @objc func hidekeyboard(){
@@ -152,9 +162,9 @@ class RegisterViewController: UIViewController {
         
     }
     
-    @IBAction func back(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
+//    @IBAction func back(_ sender: Any) {
+//        dismiss(animated: true, completion: nil)
+//    }
     
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

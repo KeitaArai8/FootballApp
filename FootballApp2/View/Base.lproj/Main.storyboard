@@ -106,13 +106,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="新規登録" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9o4-ay-KYT">
-                                <rect key="frame" x="126.5" y="188" width="161" height="48"/>
+                                <rect key="frame" x="126.5" y="144" width="161" height="48"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
                                 <color key="textColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Iob-An-Uue">
-                                <rect key="frame" x="60" y="276" width="294" height="250"/>
+                                <rect key="frame" x="60" y="232" width="294" height="250"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="NVT-B0-Xeh">
                                         <rect key="frame" x="0.0" y="0.0" width="294" height="66.5"/>
@@ -171,7 +171,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E5U-Xc-nYh">
-                                <rect key="frame" x="107" y="566" width="200" height="50"/>
+                                <rect key="frame" x="107" y="522" width="200" height="50"/>
                                 <color key="backgroundColor" red="0.4657987166" green="0.61921397649999999" blue="1" alpha="0.43303189209999998" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="IB0-dr-bbA"/>
@@ -186,7 +186,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rWE-Mw-w5X">
-                                <rect key="frame" x="77" y="666" width="260.5" height="30"/>
+                                <rect key="frame" x="77" y="622" width="260.5" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="既にアカウントをお持ちの方は" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b7y-tW-h4F">
                                         <rect key="frame" x="0.0" y="0.0" width="214.5" height="30"/>
@@ -224,9 +224,6 @@
                     <navigationItem key="navigationItem" title="掲示板" id="1cd-CP-vd3">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="return" catalog="system" id="IQd-3F-hse">
                             <color key="tintColor" red="0.9592655551" green="1" blue="0.90775877510000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            <connections>
-                                <action selector="back:" destination="JXN-tV-ueo" id="5RX-5F-e1B"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -238,7 +235,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zR0-9H-lNV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2616" y="858"/>
+            <point key="canvasLocation" x="3367" y="858"/>
         </scene>
         <!--掲示板-->
         <scene sceneID="CVu-et-dMO">
@@ -253,13 +250,13 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ログイン" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rGk-OW-aLC">
-                                        <rect key="frame" x="126.5" y="144" width="161" height="48"/>
+                                        <rect key="frame" x="126.5" y="188" width="161" height="48"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
                                         <color key="textColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="KgD-0h-Ruv">
-                                        <rect key="frame" x="60" y="232" width="294" height="150"/>
+                                        <rect key="frame" x="60" y="276" width="294" height="150"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="eO0-JL-MBF">
                                                 <rect key="frame" x="0.0" y="0.0" width="294" height="62.5"/>
@@ -301,7 +298,7 @@
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ybw-92-5He">
-                                        <rect key="frame" x="107" y="422" width="200" height="50"/>
+                                        <rect key="frame" x="107" y="466" width="200" height="50"/>
                                         <color key="backgroundColor" red="0.4657987166" green="0.61921397649999999" blue="1" alpha="0.43303189209999998" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="XfR-ip-Tg3"/>
@@ -316,7 +313,7 @@
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dWl-hL-4zV">
-                                        <rect key="frame" x="61.5" y="532" width="291" height="20"/>
+                                        <rect key="frame" x="61.5" y="576" width="291" height="20"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="まだアカウントをお持ちでない方は" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5BJ-cO-cbU">
                                                 <rect key="frame" x="0.0" y="0.0" width="245" height="20"/>
@@ -356,7 +353,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="S9o-Yq-MiF"/>
                     </view>
-                    <navigationItem key="navigationItem" title="掲示板" id="BvU-h7-0oB"/>
+                    <navigationItem key="navigationItem" title="掲示板" id="BvU-h7-0oB">
+                        <barButtonItem key="leftBarButtonItem" image="return" catalog="system" id="fhK-Mo-TtG">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="back:" destination="R4v-X4-edB" id="qpt-bq-3Ps"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="LoginButton" destination="ybw-92-5He" id="ebV-7f-tYg"/>
                         <outlet property="emailTextField" destination="ZqD-Qb-bKj" id="IcA-Uq-YRG"/>
@@ -365,7 +369,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2RL-fw-cfe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3367" y="858"/>
+            <point key="canvasLocation" x="2616" y="858"/>
         </scene>
         <!--Select Chat View Controller-->
         <scene sceneID="rxc-jf-eBd">
@@ -460,7 +464,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nFW-QI-fC7">
-                                <rect key="frame" x="93" y="690" width="230" height="80"/>
+                                <rect key="frame" x="93" y="658" width="230" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="チャンピオンズリーグ">
@@ -471,7 +475,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QEF-pt-WXN">
-                                <rect key="frame" x="93" y="430" width="230" height="80"/>
+                                <rect key="frame" x="93" y="398" width="230" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="セリエA">
@@ -481,19 +485,8 @@
                                     <action selector="serieA:" destination="A2B-lJ-UFa" eventType="touchUpInside" id="0a0-1J-LoA"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="07j-1X-El8">
-                                <rect key="frame" x="93" y="560" width="230" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="ブンデスリーガ">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="bundesliga:" destination="A2B-lJ-UFa" eventType="touchUpInside" id="dOe-Iu-9im"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uFI-GQ-tri">
-                                <rect key="frame" x="93" y="170" width="230" height="80"/>
+                                <rect key="frame" x="93" y="138" width="230" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.49639782842183411" green="1" blue="0.52739612038151851" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="プレミアリーグ">
@@ -504,7 +497,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X9y-SA-1V7">
-                                <rect key="frame" x="93" y="300" width="230" height="80"/>
+                                <rect key="frame" x="93" y="268" width="230" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.3217917085" blue="0.2453866005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="ラ・リーガ">
@@ -512,6 +505,17 @@
                                 </state>
                                 <connections>
                                     <action selector="LaLiga:" destination="A2B-lJ-UFa" eventType="touchUpInside" id="O6C-m2-sav"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="07j-1X-El8">
+                                <rect key="frame" x="93" y="528" width="230" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="ブンデスリーガ">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="bundesliga:" destination="A2B-lJ-UFa" eventType="touchUpInside" id="dOe-Iu-9im"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -621,7 +625,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="JXN-tV-ueo" kind="relationship" relationship="rootViewController" id="oM7-ig-dsI"/>
+                        <segue destination="R4v-X4-edB" kind="relationship" relationship="rootViewController" id="6Mz-FN-i5j"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RAx-by-453" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -16,6 +16,9 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var LoginButton: UIButton!
     
+    var alertController : UIAlertController!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,8 +30,26 @@ class LoginViewController: UIViewController {
         emailTextField.delegate = self
         passwordTextField.delegate = self
         
+        if self.checkUserVerify() {
+            self.transitionToView()
+        }
+        
         NotificationCenter.default.addObserver(self, selector: #selector(showkeyboard), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(hidekeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    
+    func checkUserVerify()  -> Bool {
+        
+        guard Auth.auth().currentUser != nil else { return false }
+        return true
+    }
+    
+    func transitionToView()  {
+        
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let chatVC = storyboard.instantiateViewController(withIdentifier: "SelectChat") as! SelectChatViewController
+        self.navigationController?.pushViewController(chatVC, animated: true)
     }
     
     @objc func showkeyboard(notification: Notification){
@@ -60,9 +81,23 @@ class LoginViewController: UIViewController {
     
     
     @IBAction func setUpButton(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+               let registerVC = storyboard.instantiateViewController(withIdentifier: "next") as! RegisterViewController
+               self.navigationController?.pushViewController(registerVC, animated: true)
     }
     
+    @IBAction func back(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func alert(title:String, message:String) {
+        
+        alertController = UIAlertController(title: title,message: message,preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK",style: .default,handler: nil))
+        present(alertController, animated: true)
+        
+    }
     
     @IBAction func tappedLoginButton(_ sender: Any) {
         
@@ -72,6 +107,7 @@ class LoginViewController: UIViewController {
         Auth.auth().signIn(withEmail: email, password: password) { (res, err) in
             if let err = err{
                 
+                self.alert(title: "エラー", message: "ログインに失敗しました")
                 print("ログインに失敗しました\(err)")
                 return
             }
@@ -116,9 +152,7 @@ extension LoginViewController: UITextFieldDelegate{
         }else{
             LoginButton.backgroundColor = #colorLiteral(red: 0.4080507755, green: 0.6055637002, blue: 0.9942765832, alpha: 1)
             LoginButton.isEnabled = true
-            
         }
-        
     }
     
     

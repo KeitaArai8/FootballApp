@@ -18,6 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        //        if let _ = Auth.auth().currentUser{
+        //            // ログイン中
+        //            let storyboard:UIStoryboard =  UIStoryboard(name: "Main",bundle:nil)
+        //            _ = storyboard.instantiateViewController(withIdentifier: "SelectChat")
+        //
+        //        }
         return true
     }
 
