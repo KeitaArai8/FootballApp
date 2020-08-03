@@ -16,12 +16,8 @@ class MenuViewController: UIViewController {
     @IBOutlet weak var scheduleButton: UIButton!
     @IBOutlet weak var chatButton: UIButton!
     
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
     }
     

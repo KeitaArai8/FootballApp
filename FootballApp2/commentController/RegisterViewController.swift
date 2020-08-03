@@ -74,14 +74,15 @@ class RegisterViewController: UIViewController {
         guard let email = emailTextField.text else {return}
         guard let password = passwordTextField.text else {return}
         
-        Auth.auth().createUser(withEmail: email, password: password) { (res, err) in
+        Auth.auth().createUser(withEmail: email, password: password) { [weak self] (res, err) in
             if let err = err{
                 
                 print("認証に失敗しました\(err)")
                 return
             }
-            
-            self.addUserInfoToFirestore(email: email)
+            if let weakSelf = self{
+                weakSelf.addUserInfoToFirestore(email: email)
+            }
         }
         
     }
@@ -101,7 +102,7 @@ class RegisterViewController: UIViewController {
                 return
             }
             
-            userRef.getDocument { (snapshot, err) in
+            userRef.getDocument { [weak self] (snapshot, err) in
                 if let err = err{
                     
                     print("ユーザー情報の取得に失敗しました\(err)")
@@ -113,10 +114,12 @@ class RegisterViewController: UIViewController {
                 
                 print("ユーザー情報の取得に成功しました\(user.name)")
                 
+                if let weakSelf = self{
                 let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let chatVC = storyboard.instantiateViewController(withIdentifier: "SelectChat") as! SelectChatViewController
                 chatVC.user = user
-                self.navigationController?.pushViewController(chatVC, animated: true)
+                    weakSelf.navigationController?.pushViewController(chatVC, animated: true)
+                }
             }
             print("保存に成功しました")
         }
@@ -161,11 +164,6 @@ class RegisterViewController: UIViewController {
         })
         
     }
-    
-//    @IBAction func back(_ sender: Any) {
-//        dismiss(animated: true, completion: nil)
-//    }
-    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)

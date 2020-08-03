@@ -20,7 +20,6 @@ class WebViewController: UIViewController,WKUIDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         webView.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height - 50)
         view.addSubview(webView)
         
@@ -36,19 +35,19 @@ class WebViewController: UIViewController,WKUIDelegate {
         toolbar.barStyle = .default
          
         let buttonSize: CGFloat = 24
-        // 戻るボタン
+        
         let backButton = UIButton(frame: CGRect(x: 0, y: 0, width: buttonSize, height: buttonSize))
         backButton.setBackgroundImage(UIImage(named: "arrow_left"), for: UIControl.State())
         backButton.addTarget(self, action: #selector(self.onClickBack(_:)), for: .touchUpInside)
         let backButtonItem = UIBarButtonItem(customView: backButton)
-        // コメントボタン
+        
         let commentButton = UIButton(frame: CGRect(x: 0, y: 0, width: buttonSize, height: buttonSize))
         commentButton.setBackgroundImage(UIImage(named: "message"), for: UIControl.State())
         commentButton.addTarget(self, action: #selector(self.onCommentClose(_:)), for: .touchUpInside)
         let commentButtonItem = UIBarButtonItem(customView: commentButton)
-        // 余白
+       
         let flexibleItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
-        // ツールバーにアイテムを追加
+        
         toolbar.items = [backButtonItem, flexibleItem, flexibleItem, flexibleItem, commentButtonItem]
         
         activityIndicatorView.backgroundColor = .gray
@@ -69,15 +68,12 @@ class WebViewController: UIViewController,WKUIDelegate {
         view.addSubview(activityIndicatorView)
     }
     
-    
-    // 戻るボタン
     @objc func onClickBack(_ sender: UIButton) {
         
         dismiss(animated: true, completion: nil)
         
     }
      
-    // コメントボタン
     @objc func onCommentClose(_ sender: UIButton) {
         
         addURL()

@@ -64,7 +64,6 @@ class Page3ViewController: UITableViewController,SegementSlideContentScrollViewD
         
         cell.imageView?.sd_setImage(with: profieleImageURL, placeholderImage: UIImage(named: "noImage"), options: .forceTransition, context: [.imageTransformer: imageSize], progress: nil, completed: { (_, error, _, _) in
             
-            
             if error == nil{
                 
                 cell.setNeedsLayout()
@@ -77,7 +76,6 @@ class Page3ViewController: UITableViewController,SegementSlideContentScrollViewD
         cell.textLabel?.text = NewsModel.titleArray[indexPath.row]
         cell.detailTextLabel?.text = NewsModel.publishAtArray[indexPath.row]
         cell.textLabel?.numberOfLines = 3
-        
         
         return cell
     }

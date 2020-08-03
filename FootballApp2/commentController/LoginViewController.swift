@@ -104,11 +104,13 @@ class LoginViewController: UIViewController {
         guard let email = emailTextField.text else {return}
         guard let password = passwordTextField.text else {return}
         
-        Auth.auth().signIn(withEmail: email, password: password) { (res, err) in
+        Auth.auth().signIn(withEmail: email, password: password) { [weak self] (res, err) in
             if let err = err{
-                
-                self.alert(title: "エラー", message: "ログインに失敗しました")
-                print("ログインに失敗しました\(err)")
+                if let weakSelf = self{
+                    weakSelf.alert(title: "エラー", message: "ログインに失敗しました")
+                    print("ログインに失敗しました\(err)")
+                    
+                }
                 return
             }
             
@@ -125,11 +127,13 @@ class LoginViewController: UIViewController {
                 let user = User.init(dic: data)
                 
                 print("ユーザー情報の取得に成功しました\(user.name)")
-                
+                if let weakSelf = self{
                 let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let chatVC = storyboard.instantiateViewController(withIdentifier: "SelectChat") as! SelectChatViewController
                 chatVC.user = user
-                self.navigationController?.pushViewController(chatVC, animated: true)
+                weakSelf.navigationController?.pushViewController(chatVC, animated: true)
+                    
+                }
             }
         }
         
