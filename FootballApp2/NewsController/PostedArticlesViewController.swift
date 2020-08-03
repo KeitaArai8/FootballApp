@@ -72,7 +72,6 @@ class PostedArticlesViewController: UIViewController,UITableViewDelegate,UITable
         let cell = tableView.dequeueReusableCell(withIdentifier: "messageCell", for: indexPath) as! CustomCell
         
         cell.comment = messages[indexPath.row]
-        //        cell.commentLabel.text = messages[indexPath.row]
         cell.usernameLabel.text = "匿名"
         cell.usernameLabel.textColor = .white
         
@@ -133,23 +132,24 @@ class PostedArticlesViewController: UIViewController,UITableViewDelegate,UITable
                 return
             }
             print("コメントの取得に成功しました")
-            snapshots?.documentChanges.forEach({ (documentChange) in
+            snapshots?.documentChanges.forEach({ [weak self] (documentChange) in
                 switch documentChange.type{
                     
                 case.added:
                     let dic = documentChange.document.data()
                     let comment = Comment(dic: dic)
-                    self.messages.append(comment)
-                    self.messages.sort { (m1, m2) -> Bool in
+                    if let weakSelf = self{
+                    weakSelf.messages.append(comment)
+                    weakSelf.messages.sort { (m1, m2) -> Bool in
                         let miDate = m1.createdAt.dateValue()
                         let m2Date = m2.createdAt.dateValue()
                         return miDate < m2Date
                         
                     }
-                    self.tableView.reloadData()
+                        weakSelf.tableView.reloadData()}
                     
                 case.modified,.removed:
-                    print("no")
+                        print("no")
                 }
             })
             
