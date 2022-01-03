@@ -23,7 +23,7 @@ class Page7ViewController: UITableViewController,SegementSlideContentScrollViewD
         
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         
-        getdataClass.getdata(text: "https://newsapi.org/v2/everything?q=プレミアリーグ リバプール&language=jp&sortBy=publishedAt&apiKey=1958c16c0cae44cf94156f4e04c2144d&pageSize=50")
+        getdataClass.getdata(text: "https://newsapi.org/v2/everything?q=リバプール&language=jp&sortBy=publishedAt&apiKey=1958c16c0cae44cf94156f4e04c2144d&pageSize=50")
         getDataArray(titleArray: NewsModel.titleArray, publishAtArray: NewsModel.publishAtArray, imageURLStringArray: NewsModel.imageURLStringArray, JSONurlArray: NewsModel.JSONurlArray)
     }
     

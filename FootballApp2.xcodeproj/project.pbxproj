@@ -56,7 +56,7 @@
 		6F9EB28624B7658200F26900 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		6FAA854F24A4F5B400B269AA /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		6FAA855124A4F5C200B269AA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		6FBDFD0A2493CA6400D4D15A /* FootballApp2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FootballApp2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6FBDFD0A2493CA6400D4D15A /* FootballApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FootballApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FBDFD0D2493CA6400D4D15A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6FBDFD0F2493CA6400D4D15A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		6FBDFD112493CA6400D4D15A /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -110,7 +110,7 @@
 		6FBDFD0B2493CA6400D4D15A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6FBDFD0A2493CA6400D4D15A /* FootballApp2.app */,
+				6FBDFD0A2493CA6400D4D15A /* FootballApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -195,9 +195,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6FBDFD092493CA6400D4D15A /* FootballApp2 */ = {
+		6FBDFD092493CA6400D4D15A /* FootballApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6FBDFD1E2493CA6500D4D15A /* Build configuration list for PBXNativeTarget "FootballApp2" */;
+			buildConfigurationList = 6FBDFD1E2493CA6500D4D15A /* Build configuration list for PBXNativeTarget "FootballApp" */;
 			buildPhases = (
 				EEEA4E521AD922A316656A25 /* [CP] Check Pods Manifest.lock */,
 				6FBDFD062493CA6400D4D15A /* Sources */,
@@ -209,9 +209,11 @@
 			);
 			dependencies = (
 			);
-			name = FootballApp2;
+			name = FootballApp;
+			packageProductDependencies = (
+			);
 			productName = FootballApp2;
-			productReference = 6FBDFD0A2493CA6400D4D15A /* FootballApp2.app */;
+			productReference = 6FBDFD0A2493CA6400D4D15A /* FootballApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -238,11 +240,13 @@
 				Base,
 			);
 			mainGroup = 6FBDFD012493CA6400D4D15A;
+			packageReferences = (
+			);
 			productRefGroup = 6FBDFD0B2493CA6400D4D15A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6FBDFD092493CA6400D4D15A /* FootballApp2 */,
+				6FBDFD092493CA6400D4D15A /* FootballApp */,
 			);
 		};
 /* End PBXProject section */
@@ -522,7 +526,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6FBDFD1E2493CA6500D4D15A /* Build configuration list for PBXNativeTarget "FootballApp2" */ = {
+		6FBDFD1E2493CA6500D4D15A /* Build configuration list for PBXNativeTarget "FootballApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6FBDFD1F2493CA6500D4D15A /* Debug */,
